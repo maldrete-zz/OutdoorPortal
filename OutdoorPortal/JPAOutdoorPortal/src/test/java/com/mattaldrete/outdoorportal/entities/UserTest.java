@@ -1,6 +1,6 @@
 package com.mattaldrete.outdoorportal.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,15 +10,15 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class UserTest {
-	
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private User user;
+	private Activity activity;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -50,8 +50,11 @@ class UserTest {
 		assertEquals("matt@matt.com", user.getEmail());
 		assertEquals("image", user.getImage());
 	}
-	
+
 	@Test
 	@DisplayName("Test User - Activity ID -> location")
+	void test2() {
+		assertEquals(1, user.getActivityId());
+	}
 
 }
